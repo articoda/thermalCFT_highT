@@ -803,12 +803,12 @@ Note that at $p=2$ the coefficient of $K^2$ in \eqref{eq:flatformula} is the pro
 	\begin{equation}
 		W=-\frac{q^2}{4\pi}\int_{-1}^{1-\delta}\dd c\,\frac{c}{(1-c)^2}=-\frac{q^2}{4\pi}\Bigl[\frac1\delta+\log\delta+\dots\Bigr]\, ,\qquad\qquad \delta=\frac{\epsilon^2}{2\rho^2}\, ,
 	\end{equation}
-	where we cut off the integral when the distance between the two points is $\epsilon$. The first term is a power divergence proportional to the area. The second is $\tfrac{q^2}{2\pi}\log(\rho/\epsilon)$. Comparing with \eqref{eq:anomaly}, and using $\cA=b/3$ for a sphere,
+	where we cut off the integral when the distance between the two points is $\epsilon$. The first term is a power divergence proportional to the area. It is removed by a counterterm proportional to the area of $\Sigma$, which does not depend on the temperature and we drop it. The second is $\tfrac{q^2}{2\pi}\log(\rho/\epsilon)$. Comparing with \eqref{eq:anomaly}, and using $\cA=b/3$ for a sphere,
 	\begin{equation}
 		\frac b3=\frac{q^2}{2\pi}\, .
 	\end{equation}
 	
-	We then consider the latitude $S^2\subset S^5$ at finite temperature, with antiperiodic boundary conditions, which now correspond to inserting the symmetry $B\to-B$ in the trace. The integral of a two-form on a surface does not involve the metric, so \eqref{eq:Wwilson} is invariant under conformal transformations, and we can evaluate it in the coordinates $r=R\,e^{\tau/R}$ in which $\mathbb{R}\times S^5_R$ is conformal to $\mathbb{R}^6$. This is only a change of coordinates, where the latitude becomes a sphere of radius $R\sin\theta$, and its $n$-th thermal image is the same sphere rescaled by $e^{n\beta/R}$. For two points on the two spheres one finds again $c=\cos\chi$, and the distance is given by the same $A_n$ of equation \eqref{eq:WnscalarLat} as for the scalar. The image $n$ is
+	We then consider the latitude $S^2\subset S^5$ at finite temperature, with antiperiodic boundary conditions, which now correspond to inserting the symmetry $B\to-B$ in the trace. The theory of $B$ in $d=6$ is conformal, $B$ does not change under a Weyl rescaling and the integral of a two-form on a surface does not involve the metric. Hence $W$ does not change under a conformal map, and we can compute it with \eqref{eq:Wwilson} in flat space, using the coordinates $r=R\,e^{\tau/R}$ in which $\mathbb{R}\times S^5_R$ is conformal to $\mathbb{R}^6$. The scale factor of this map is one at $\tau=0$, so the cutoff $\epsilon$ is the same in the two frames. In these coordinates the latitude becomes a sphere of radius $R\sin\theta$, and its $n$-th thermal image is the same sphere rescaled by $e^{n\beta/R}$. For two points on the two spheres one finds again $c=\cos\chi$, and the distance is given by the same $A_n$ of equation \eqref{eq:WnscalarLat} as for the scalar. The image $n$ is
 	\begin{equation}
 		W_n=-\frac{q^2\sin^4\theta}{4\pi}\int_{-1}^1\dd c\,\frac{c}{\bigl(A_n-\sin^2\theta\,c\bigr)^2}
 		=-\frac{q^2}{4\pi}\,\Bigl[\frac{2A_n\sin^2\theta}{A_n^2-\sin^4\theta}-\log\frac{A_n+\sin^2\theta}{A_n-\sin^2\theta}\Bigr]\, .
@@ -821,7 +821,7 @@ Note that at $p=2$ the coefficient of $K^2$ in \eqref{eq:flatformula} is the pro
 	\begin{equation}\label{eq:tflat}
 		W^-_\beta[\Sigma_\theta]=\frac{\pi q^2}{12}\Bigl(\frac{R\sin\theta}{\beta}\Bigr)^{2}+\frac{q^2}{2\pi}\log\frac{\beta}{\epsilon}-\frac{q^2}{24\pi}\sin^2\theta+\text{const}\, .
 	\end{equation}
-	This is \eqref{eq:lateval} with $\cA=b/3$. The coefficient of $\log\beta$ is the anomaly computed at zero temperature, and it does not depend on $\theta$ or $R$, as predicted in Section~\ref{sec:log}: at finite temperature the logarithm of the size of the defect is replaced by the logarithm of $\beta$. The other terms give $m_D=\tfrac{\pi q^2}{12}$ and, by \eqref{eq:p2lat}, $r_2-4t_2=-\tfrac{q^2}{24\pi}$, while the constant is $\gamma+4t_2$ and depends on the definition of $\epsilon$. Finally, there is no term linear in $\beta$, in agreement with the cancellation of the Casimir energy discussed in Section~\ref{sec:log}.
+	This is \eqref{eq:lateval} with $\cA=b/3$. The coefficient of $\log\beta$ is the anomaly computed at zero temperature, and it does not depend on $\theta$ or $R$, as predicted in Section~\ref{sec:log}: at finite temperature the logarithm of the size of the defect is replaced by the logarithm of $\beta$. The other terms give $m_D=\tfrac{\pi q^2}{12}$ and, by \eqref{eq:p2lat}, $r_2-4t_2=-\tfrac{q^2}{24\pi}$. The constant is $\gamma+4t_2$ and depends on the definition of $\epsilon$, because $\epsilon\to\kappa\epsilon$ shifts it by $-\cA\log\kappa$. Finally, as expected, there is no term linear in $\beta$.
 
 
 \subsection{An interacting test: the surface defect of the \texorpdfstring{$O(N)$}{O(N)} model}\label{sec:ON}
