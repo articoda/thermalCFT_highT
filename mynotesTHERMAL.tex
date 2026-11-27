@@ -825,9 +825,318 @@ Note that at $p=2$ the coefficient of $K^2$ in \eqref{eq:flatformula} is the pro
 
 
 \subsection{An interacting test: the surface defect of the \texorpdfstring{$O(N)$}{O(N)} model}\label{sec:ON}
-\MF{I did not check all the computations here, so for now I prefer not to give these things as checked. I'll think a bit more on this.}
 
-	The tests of subection \ref{sec:tests} are in free theories, where the screening has to be imposed by hand with antiperiodic boundary conditions. In this section we study an example with $p=2$ in an interacting theory, in which the fields are periodic and the screening is produced by the interactions. The example is the surface defect of the $O(N)$ Wilson--Fisher theory in $d=4-\varepsilon$ that couples to the operator $\phi^2$. 
+The tests of subection \ref{sec:tests} are in free theories, where the screening has to be imposed by hand with antiperiodic boundary conditions. In this section we study an example with $p=2$ in an interacting theory, in which the fields are periodic and the screening is produced by the interactions. The example is the surface defect of the $O(N)$ Wilson--Fisher theory in $d=4-\varepsilon$ that couples to the operator $\phi^2$. For $p=1$ the analogous computation, for the magnetic line of the same theory, was done in \cite{BMP}, and we follow the same strategy: at high temperature the long-distance physics is that of the static mode of the fields.
+
+We first determine $m_D$ from a plane in flat space, then the coefficients of the curvature terms from the latitude on the sphere and from curved surfaces in flat space.
+
+\paragraph{The defect.}
+The theory has $N$ scalar fields $\phi_\alpha$, with $\alpha=1,\dots,N$, and we write $\phi^2\colonequals\phi_\alpha\phi_\alpha$. The action and the defect are
+\begin{equation}\label{eq:ONaction}
+	\begin{gathered}
+		S=\int\dd^dx\sqrt g\,\Bigl[\frac12\,(\partial_\mu\phi_\alpha)^2+\frac{d-2}{8(d-1)}\,\cR\,\phi^2+\frac{\lambda}{4!}\,\bigl(\phi^2\bigr)^2\Bigr]\, ,\\
+		\cD=\exp\Bigl(-h\int_\Sigma\dd^2\sigma\sqrt\gamma\;\phi^2\Bigr)\, .
+	\end{gathered}
+\end{equation}
+The second term of the action is the conformal coupling to the Ricci scalar $\cR$. On $S^1_\beta\times S^{3}_R$ we have $\cR=6/R^2$, so for $d=4$ this term is a mass term $\tfrac{1}{2R^2}\phi^2$. In $d=4-\varepsilon$ the bulk theory has the Wilson--Fisher fixed point, and the defect coupling $h$ has a fixed point too \cite{Trepanier:2023tvb,Giombi:2023dqs,Raviv-Moshe:2023yvq,Shachar:2022fqk},
+\begin{equation}\label{eq:ONfp}
+	\lambda_*=\frac{48\pi^2}{N+8}\,\varepsilon+O(\varepsilon^2)\, ,\qquad\qquad h_*=\frac{6\pi}{N+8}\,\varepsilon+O(\varepsilon^2)\, .
+\end{equation}
+At this fixed point $\cD$ is a conformal defect with $p=2$. Its anomaly coefficients \eqref{eq:anomalyp2} are known: $b=-\tfrac{27N}{(N+8)^3}\,\varepsilon^3+O(\varepsilon^4)$ \cite{Giombi:2023dqs}, and $d_1=\tfrac{27N}{2(N+8)^2}\,\varepsilon^2+O(\varepsilon^3)$ \cite{Diatlyk:2024ngd}. Both couplings in \eqref{eq:ONfp} are of order $\varepsilon$, so we can expand in $h$ and in $\lambda$. At the order in $\varepsilon$ to which we work, all the correlation functions can be computed in $d=4$, and $\varepsilon$ enters only through \eqref{eq:ONfp}.
+
+\paragraph{The static mode and the thermal mass.}
+We expand the fields in Fourier modes on the thermal circle,
+\begin{equation}\label{eq:ONmodes}
+	\phi_\alpha(\tau,x)=\sum_{n\in\mathbb{Z}}e^{i\omega_n\tau}\,\phi^{(n)}_\alpha(x)\, ,\qquad\qquad \omega_n=\frac{2\pi n}{\beta}\, ,
+\end{equation}
+where $x$ is a point of the spatial slice. The quadratic part of the action on $S^1_\beta\times S^{3}_R$  is
+\begin{equation}\label{eq:ONquad}
+	\beta\sum_{n\in\mathbb{Z}}\int\dd^3x\sqrt g\;\frac12\,\phi^{(-n)}_\alpha\Bigl(-\nabla^2+\frac{1}{R^2}+\omega_n^2\Bigr)\phi^{(n)}_\alpha\, ,
+\end{equation}
+with $\nabla^2$ the Laplacian of the slice. Each mode is thus a field in three dimensions with mass $|\omega_n|$. The modes with $n\neq0$ have a mass of at least $2\pi/\beta$, and their correlations decay over a distance of order $\beta$. The mode with $n=0$ does not depend on $\tau$. We call it the static mode, and we normalise it as
+\begin{equation}\label{eq:ONstatic}
+	\chi_\alpha(x)\colonequals\sqrt\beta\;\phi^{(0)}_\alpha(x)=\frac{1}{\sqrt\beta}\int_0^\beta\dd\tau\,\phi_\alpha(\tau,x)\, .
+\end{equation}
+The factor $\sqrt\beta$ removes the overall $\beta$ from the term $n=0$ of \eqref{eq:ONquad}, which becomes $\int\dd^3x\sqrt g\,\tfrac12\,\chi_\alpha\bigl(-\nabla^2+\tfrac{1}{R^2}\bigr)\chi_\alpha$. In the free theory the static mode is massless in flat space (so $R \to \infty$), so it is not screened. This is the reason why the effective theory does not apply to a free scalar with periodic boundary conditions, as discussed for the line in \cite{BMP}.
+
+In the interacting theory the static mode has a mass, because the quartic term couples it to the other modes, which fluctuate at temperature $1/\beta$. To see this we split each field as $\phi_\alpha=\chi_\alpha/\sqrt\beta+\phi'_\alpha$, where $\phi'_\alpha$ is the sum of the modes with $n\neq0$, and we insert this in the quartic term. We keep the terms with two powers of $\chi$ and two of $\phi'$. Of the four fields in $(\phi^2)^2=\phi_\alpha\phi_\alpha\,\phi_{\alpha'}\phi_{\alpha'}$, the two that become $\chi$ can have the same index, in two ways, or different indices, in four ways:
+\begin{equation}
+	\frac{\lambda}{4!}\,\bigl(\phi^2\bigr)^2\;\supset\;\frac{\lambda}{4!\,\beta}\,
+	\Bigl[2\,\chi_\alpha\chi_\alpha\;\phi'_{\alpha'}\phi'_{\alpha'}
+	+4\,\chi_\alpha\chi_{\alpha'}\;\phi'_\alpha\phi'_{\alpha'}\Bigr]\, .
+\end{equation}
+The fields $\phi'_\alpha$ vary over distances of order $\beta$, much shorter than those over which $\chi_\alpha$ varies, so $\chi_\alpha$ is sensitive only to their average. We therefore replace the product of two $\phi'$ with its thermal expectation value, which at leading order is the one of the free theory, $\langle\phi'_\alpha\phi'_{\alpha'}\rangle_\beta=\tfrac{\delta_{\alpha\alpha'}}{12\beta^2}$. Both terms then become proportional to $\chi^2=\chi_\alpha\chi_\alpha$ and do not depend on $\tau$, so the integral over $\tau$ gives a factor $\beta$, and in the action we find
+\begin{equation}
+	\int\dd^3x\sqrt g\;\frac{\lambda}{4!}\,\bigl(2N+4\bigr)\,\frac{1}{12\,\beta^2}\;\chi^2
+	\colonequals\int\dd^3x\sqrt g\;\frac12\,m_{\rm th}^2\,\chi^2\, ,
+\end{equation}
+which is a mass term for the static mode. The corrections to this replacement are of higher order in $\lambda$. With \eqref{eq:ONfp} the thermal mass is
+\begin{equation}\label{eq:ONmth}
+	m_{\rm th}^2=\frac{(N+2)\,\lambda_*}{72\,\beta^2}=\frac{2\pi^2}{3}\,\frac{N+2}{N+8}\,\frac{\varepsilon}{\beta^2}+O(\varepsilon^{3/2})\, ,
+\end{equation}
+in agreement with ~\cite{Chai:2020zgq,Barrat:2026ozj,BMP}. For $N=1$ the first expression is the well-known thermal mass $\tfrac{\lambda}{24\beta^2}$ of the theory with potential $\tfrac{\lambda}{4!}\phi^4$.
+
+We can now write the action of the static mode in the presence of the defect. We insert $\phi_\alpha=\chi_\alpha/\sqrt\beta+\phi'_\alpha$ in the action and in the defect \eqref{eq:ONaction}, and we keep the terms that contain only $\chi_\alpha$, together with the thermal mass. Since $\chi_\alpha$ does not depend on $\tau$, the integral over $\tau$ gives a factor $\beta$, and
+\begin{equation}\label{eq:ONstaticaction}
+	S_{\rm st}[\chi]=\int\dd^3x\sqrt g\,\Bigl[\frac12\,(\partial\chi_\alpha)^2+\frac12\,\Bigl(m_{\rm th}^2+\frac{1}{R^2}\Bigr)\chi^2
+	+\frac{1}{4!}\,\frac{\lambda}{\beta}\,\bigl(\chi^2\bigr)^2\Bigr]
+	+\frac h\beta\int_\Sigma\dd^2\sigma\sqrt\gamma\;\chi^2\, .
+\end{equation}
+The last term is the defect, which contains $h\,\phi^2\supset\tfrac h\beta\,\chi^2$. This is a theory in three dimensions with mass $m_{\rm th}$ and quartic coupling $\lambda/\beta$, in which the defect is a mass term on $\Sigma$ with coefficient $h/\beta$. It is the analogue of the reduced theory of the static mode of \cite{BMP}, with a surface that couples to $\chi^2$ in place of a line that couples to $\chi_1$. It describes the physics at distances much larger than $\beta$, since the static mode is the only light field. At distances of order $\beta$ the other modes are equally important, and we will have to include them.
+
+The action \eqref{eq:ONstaticaction} tells us how the perturbative expansion is organised. The two couplings $\lambda/\beta$ and $h/\beta$ have the dimension of a mass, so the expansions in them are in powers of the dimensionless ratios
+\begin{equation}\label{eq:ONcounting}
+	\frac{\lambda}{\beta\,m_{\rm th}}\sim\sqrt\varepsilon\, ,\qquad\qquad
+	\frac{h}{\beta\,m_{\rm th}}\sim\sqrt\varepsilon\, ,
+\end{equation}
+where we used $\lambda\sim h\sim\varepsilon$ and $m_{\rm th}\beta\sim\sqrt\varepsilon$. Each loop of the static mode, and each additional power of the defect coupling acting on it, therefore costs a factor $\sqrt\varepsilon$. For the modes with $n\neq0$ the corrections are smaller: the interaction changes their mass squared by a term of order $\lambda/\beta^2$, which is of relative order $\varepsilon$ compared with $\omega_n^2$. The results below therefore have corrections of relative order $\sqrt\varepsilon$, unless stated otherwise.
+
+All the modes are now screened, and the screening length of subsection~\ref{sec:screening} is the inverse of the smallest mass,
+\begin{equation}\label{eq:ONxi}
+	\xiscr=\frac{1}{m_{\rm th}}=\frac{\beta}{\pi}\,\sqrt{\frac{3\,(N+8)}{2\,(N+2)\,\varepsilon}}\, .
+\end{equation}
+It is larger than $\beta$ by a factor of order $\varepsilon^{-1/2}$. The effective theory applies when the size $\ell_\Sigma$ of the defect is much larger than $\xiscr$, so there are three separated scales,
+\begin{equation}\label{eq:ONhier}
+	\beta\ll\xiscr\ll\ell_\Sigma\, ,
+\end{equation}
+with $\ell_\Sigma=R\sin\theta$ for the latitude. This is the same hierarchy as for the magnetic line \cite{BMP}.
+
+\paragraph{The propagator.}
+We need the thermal propagator between two points at the same Euclidean time, $\langle\phi_\alpha(0,x)\,\phi_{\alpha'}(0,x')\rangle_\beta=\delta_{\alpha\alpha'}\,G_\beta(x,x')$. By \eqref{eq:ONmodes} and \eqref{eq:ONstatic} the field at $\tau=0$ is $\phi_\alpha=\chi_\alpha/\sqrt\beta+\sum_{n\neq0}\phi^{(n)}_\alpha$, so by \eqref{eq:ONquad} and \eqref{eq:ONstaticaction} $G_\beta$ is $1/\beta$ times the sum of the propagators of fields in three dimensions with masses $m_{\rm th}$ and $|\omega_n|$.
+
+Consider first flat space, $S^1_\beta\times\mathbb{R}^3$. The propagator in three dimensions of a field of mass $\omega$ is $\tfrac{e^{-\omega v}}{4\pi v}$ at distance $v$, and the sum over $n\neq0$ is a geometric series, $\sum_{n\neq0}e^{-|\omega_n|v}=\tfrac{2}{e^{2\pi v/\beta}-1}$. Hence in flat space $G_\beta=\mathcal{G}(v)$ with
+\begin{equation}\label{eq:ONGflat}
+	\mathcal{G}(v)\colonequals\frac{1}{4\pi\beta\,v}\,\Bigl[e^{-m_{\rm th}v}+\frac{2}{e^{2\pi v/\beta}-1}\Bigr]\, .
+\end{equation}
+The first term in the bracket is the static mode, which extends up to distances of order $\xiscr$. The second term is the sum of the other modes, and it is different from zero only for $v\lesssim\beta$. Since $1+\tfrac{2}{e^{2x}-1}=\coth x$, we can also write $\mathcal{G}(v)=\tfrac{\coth(\pi v/\beta)}{4\pi\beta v}+\tfrac{e^{-m_{\rm th}v}-1}{4\pi\beta v}$: the first term is the thermal propagator of the free massless theory, and the second replaces its massless static part with the massive one. This is the propagator used in \cite{BMP}. At short distance, from $\tfrac{2}{e^x-1}=\tfrac2x-1+\tfrac x6+O(x^3)$,
+\begin{equation}\label{eq:ONGshort}
+	\mathcal{G}(v)=\frac{1}{4\pi^2v^2}+\frac{1}{12\,\beta^2}-\frac{m_{\rm th}}{4\pi\beta}+O(v)\, .
+\end{equation}
+The first term is the propagator at zero temperature, which we call $G_\infty$.
+
+Consider now the sphere, $S^1_\beta\times S^3_R$. A mode of mass $\omega$ has propagator $g_\omega$, the solution of $\bigl(-\nabla^2+\tfrac{1}{R^2}+\omega^2\bigr)g_\omega=\delta_{S^3}$. It depends only on the angle $\psi$ between the two points. On a function of $\psi$ the Laplacian of $S^3_R$ is $\tfrac{1}{R^2\sin^2\psi}\,\partial_\psi\bigl(\sin^2\psi\,\partial_\psi\bigr)$, and it becomes simple if we write
+\begin{equation}
+	g_\omega(\psi)=\frac{u(\psi)}{\sin\psi}\, ,\qquad\qquad
+	\nabla^2g_\omega=\frac{1}{R^2\sin^2\psi}\,\partial_\psi\bigl(\sin^2\psi\,\partial_\psi g_\omega\bigr)=\frac{u''+u}{R^2\sin\psi}\, .
+\end{equation}
+Away from $\psi=0$ the right-hand side of the equation for $g_\omega$ vanishes, and with this expression it becomes $-\tfrac{u''+u}{R^2}+\tfrac{u}{R^2}+\omega^2u=0$, that is $u''=\omega^2R^2\,u$. Two conditions fix the solution. First, the only source is at $\psi=0$ ($\delta_{S^3}$), so $g_\omega$ has to be finite at the antipodal point $\psi=\pi$, which is a ``standard'' point on $S^3$. Since $\sin\psi$ vanishes there, this requires $u(\pi)=0$, hence $u\propto\sinh\bigl(\omega R(\pi-\psi)\bigr)$. Second, when two points are close, meaning at distances $R\psi$ much shorter than $R$ and $1/\omega$, the curvature and the mass are negligible, and $g_\omega$ has to approach the solution of $-\nabla^2g=\delta$ in flat space, which is $\tfrac{1}{4\pi R\psi}$. This fixes the normalisation, and we find
+\begin{equation}\label{eq:ONg}
+	g_\omega(\psi)=\frac{\sinh\bigl(\omega R\,(\pi-\psi)\bigr)}{4\pi R\,\sinh(\pi\omega R)\,\sin\psi}=\frac{\psi}{\sin\psi}\;\frac{e^{-\omega R\psi}}{4\pi R\,\psi}\, ,
+\end{equation}
+where the second expression holds for $\omega R\gg1$, up to terms that are exponentially small in $\omega R$, which is our regime (high temperature, static mode massive with $\xi_{\rm scr} \sim 1/m_{\rm th}$). The propagator on the sphere is thus the one in flat space at distance $v=R\psi$, times $\tfrac{\psi}{\sin\psi}$. For $R\gg\xiscr$ this holds for all the modes, and
+\begin{equation}\label{eq:ONGsphere}
+	G_\beta(\psi)=\frac1\beta\,\Bigl[\,g_{m_{\rm th}}(\psi)+\sum_{n\neq0}g_{\omega_n}(\psi)\Bigr]=\frac{\psi}{\sin\psi}\;\mathcal{G}(R\psi)\, .
+\end{equation}
+The whole dependence on the curvature of the sphere is in the factor $\tfrac{\psi}{\sin\psi}$. For $m_{\rm th}=0$ we have that  \eqref{eq:ONGsphere}, with the exact
+$g_\omega$ of \eqref{eq:ONg}, is the propagator of the free theory with
+periodic boundary conditions. It is the sum over the thermal images of
+\eqref{eq:Gcyl}, as in subsection \ref{sec:tests} but without the signs
+$(-1)^n$, and the two expressions are related by the Poisson summation formula,
+because $g_\omega$ is the Fourier transform of \eqref{eq:Gcyl} with respect to $\tau$, i.e. 
+\begin{equation}
+	\int_{-\infty}^{\infty} d\tau\, e^{i\omega\tau}\,
+	\frac{1}{8\pi^2R^2\left(\cosh\frac{\tau}{R}-\cos\psi\right)}
+	= \frac{\sinh\omega R(\pi-\psi)}{4\pi R\,\sinh(\pi\omega R)\,\sin\psi}\,.
+\end{equation}
+
+
+\paragraph{The expansion in the defect coupling.}
+The quantity that we want is $W_\beta[\Sigma]=\log\langle\cD\rangle_\beta$, where $\langle\dots\rangle_\beta$ is the thermal expectation value. Expanding the exponential in \eqref{eq:ONaction} and taking the logarithm we find
+\begin{equation}\label{eq:ONexp}
+	W_\beta[\Sigma]=\underbrace{-h\int_\Sigma\dd^2\sigma\sqrt\gamma\;\langle\phi^2(\sigma)\rangle_\beta}_{W^{(1)}}
+	+\underbrace{\frac{h^2}{2}\int_\Sigma\dd^2\sigma\sqrt\gamma\int_\Sigma\dd^2\sigma'\sqrt{\gamma'}\;\langle\phi^2(\sigma)\,\phi^2(\sigma')\rangle_{\beta,c}}_{W^{(2)}}+O(h^3)\, ,
+\end{equation}
+where the subscript $c$ denotes the connected correlator. Both terms are given by the propagator $G_\beta$ of the previous paragraph, evaluated between two points of $\Sigma$: it is $\mathcal{G}(v)$ of \eqref{eq:ONGflat} in flat space, with $v$ the distance between the two points, and \eqref{eq:ONGsphere} on the sphere, with $\psi$ the angle between them.
+
+In $W^{(2)}$, by Wick's theorem the connected correlator is $2N\,G_\beta^2$, so that
+\begin{equation}\label{eq:ONW12}
+	W^{(2)}=N\,h^2\int_\Sigma\dd^2\sigma\sqrt\gamma\int_\Sigma\dd^2\sigma'\sqrt{\gamma'}\;G_\beta(\sigma,\sigma')^2\, .
+\end{equation}
+In $W^{(1)}$ the two fields of $\phi^2$ are at the same point, so $\langle\phi^2\rangle_\beta$ is $N$ times $G_\beta$ at coincident points, which diverges and has to be defined. The operator $\phi^2$ is a primary, so its expectation value vanishes at zero temperature in flat space, and also on $\mathbb{R}\times S^3_R$, which is conformal to flat space. We therefore subtract the propagator at zero temperature $G_\infty$, which is the divergent part of $G_\beta$, before taking the coincident limit:
+\begin{equation}\label{eq:ONphi2def}
+	\langle\phi^2\rangle_\beta=N\lim_{\sigma'\to\sigma}\bigl[G_\beta(\sigma,\sigma')-G_\infty(\sigma,\sigma')\bigr]\, .
+\end{equation}
+This is the convention of subsection~\ref{sec:log}: on the sphere another definition would differ by a multiple of $1/R^2$, which changes $W_\beta[\Sigma]$ by the counterterm $\int_\Sigma\dd^2\sigma\sqrt\gamma/R^2$, and this counterterm is not invariant under local rescalings. (It is a shift $[\phi^2] \to [\phi^2] + c \mathcal{R}$.)
+
+\paragraph{The area coefficient $m_D$.}
+The coefficient $m_D$ is determined by a plane in flat space, for which \eqref{eq:EFT} gives $W_\beta[\Sigma]=\tfrac{m_D}{4\pi\beta^2}$ times the area. We compute it at the first two orders in $h$.
+
+At first order, in flat space $G_\infty=\tfrac{1}{4\pi^2v^2}$, and from \eqref{eq:ONphi2def} and \eqref{eq:ONGshort}
+\begin{equation}\label{eq:ONphi2flat}
+	\langle\phi^2\rangle_\beta=N\,\Bigl[\frac{1}{12\,\beta^2}-\frac{m_{\rm th}}{4\pi\beta}\Bigr]\, .
+\end{equation}
+The first term comes from the modes with $n\neq0$ and the second from the static mode. This is the propagator at coincident points of \cite{Barrat:2026ozj}. Multiplying by $-h$ and by $4\pi\beta^2$ we find that the first order contributes $-N h\,\bigl(\tfrac\pi3-m_{\rm th}\beta\bigr)$ to $m_D$.
+
+At second order, \eqref{eq:ONW12} for a plane is $N h^2$ times the area times $\int\dd^2v\,\mathcal{G}(v)^2$. The integral diverges at short distance and we cut it off at $v=\epsilon$. It is the first of the moments
+\begin{equation}\label{eq:ONMk}
+	\mathcal{M}_k\colonequals\int_\epsilon^\infty\dd v\,v^k\,\mathcal{G}(v)^2\, ,
+\end{equation}
+namely $\int\dd^2v\,\mathcal{G}^2=2\pi\,\mathcal{M}_1$. The higher moments will appear in the curvature terms, so we compute all of them now. With $x=2\pi v/\beta$ and $\kappa\colonequals\tfrac{m_{\rm th}\beta}{2\pi}$,
+\begin{equation}\label{eq:ONmu}
+	\mathcal{M}_{2k+1}=\frac{\beta^{2k-2}}{16\pi^2\,(2\pi)^{2k}}\;\mu_k\, ,\qquad\qquad
+	\mu_k\colonequals\int_{x_\epsilon}^\infty\dd x\,x^{2k-1}\,\Bigl[e^{-\kappa x}+\frac{2}{e^x-1}\Bigr]^2\, ,\qquad x_\epsilon=\frac{2\pi\epsilon}{\beta}\, .
+\end{equation}
+We expand the square, we use $\tfrac{1}{e^x-1}=\sum_{j\ge1}e^{-jx}$ and $\tfrac{1}{(e^x-1)^2}=\sum_{j\ge1}(j-1)\,e^{-jx}$, and we integrate term by term with $\int_0^\infty\dd x\,x^{s-1}e^{-ax}=\Gamma(s)\,a^{-s}$. This gives
+\begin{equation}\label{eq:ONmus}
+	\int_0^\infty\dd x\,x^{s-1}\,\Bigl[e^{-\kappa x}+\frac{2}{e^x-1}\Bigr]^2=\Gamma(s)\,\Bigl[(2\kappa)^{-s}+4\,\zeta(s,1+\kappa)+4\,\zeta(s-1)-4\,\zeta(s)\Bigr]\, ,
+\end{equation}
+where $\zeta(s,a)=\sum_{j\ge0}(j+a)^{-s}$ is the Hurwitz zeta function. The three terms are the square of the static mode, the product of the static mode with the other modes, and the square of the other modes. For $k\ge2$ the integral converges at $x\to0$, the cutoff can be removed, and $\mu_k$ is \eqref{eq:ONmus} with $s=2k$. For $k=0$ and $k=1$ it diverges, because for small $x$ the square bracket of \eqref{eq:ONmu} is $\tfrac2x+O(x)$ and its square is $\tfrac{4}{x^2}+\tfrac23-4\kappa+O(x)$. In these two cases the right-hand side of \eqref{eq:ONmus} has a pole, at $s=0$ and at $s=2$ respectively, and the integral with the cutoff is obtained from it by replacing the pole with the divergent terms, which are computed from the expansion for small $x$. The result is
+\begin{equation}\label{eq:ONmu01}
+	\begin{aligned}
+		\mu_0&=\frac{2}{x_\epsilon^2}+\Bigl(\frac23-4\kappa\Bigr)\Bigl(\log\frac{1}{x_\epsilon}-\gamma_E\Bigr)+\log\frac{1}{2\kappa}+4\log\Gamma(1+\kappa)+4\,\zeta'(-1)\, ,\\
+		\mu_1&=4\log\frac{1}{x_\epsilon}+4+\frac{1}{4\kappa^2}+4\,\zeta(2,1+\kappa)-4\,\zeta(2)\, ,
+	\end{aligned}
+\end{equation}
+up to terms that vanish for $x_\epsilon\to0$, where $\gamma_E$ is the Euler constant.	 We need them for $m_{\rm th}\beta\ll1$, that is for $\kappa\to0$, where $\zeta(s,1+\kappa)\to\zeta(s)$. Let $L\colonequals\log\tfrac{\beta}{2\pi\epsilon}$. Then
+\begin{equation}\label{eq:ONmusmall}
+	\begin{gathered}
+		\mu_0=\frac{2}{x_\epsilon^2}+\Bigl(\frac23-\frac{2\,m_{\rm th}\beta}{\pi}\Bigr)L+\log\frac{\pi}{m_{\rm th}\beta}+4\,\zeta'(-1)-\frac23\,\gamma_E\, ,\\
+		\mu_1=\frac{\pi^2}{(m_{\rm th}\beta)^2}+4\,L+4\, ,\qquad\qquad
+		\mu_2=\frac{6\pi^4}{(m_{\rm th}\beta)^4}+24\,\zeta(3)\, ,
+	\end{gathered}
+\end{equation}
+up to terms of order $(m_{\rm th}\beta)^2$ in $\mu_0$ and of order $m_{\rm th}\beta$ in $\mu_1$ and $\mu_2$. In each $\mu_k$ with $k\ge1$ the term with the inverse power of $m_{\rm th}\beta$ is the square of the static mode, which is $\Gamma(2k)\,(2\kappa)^{-2k}$ in \eqref{eq:ONmus}.
+
+The second order contributes to $m_D$ the quantity $4\pi\beta^2\cdot N h^2\cdot2\pi\mathcal{M}_1=\tfrac{N h^2}{2}\,\mu_0$. The term $\tfrac{2}{x_\epsilon^2}$ of $\mu_0$ gives $\tfrac{N h^2}{16\pi^3\epsilon^2}$ times the area in $W^{(2)}$. It does not depend on $\beta$, and it is removed by a counterterm proportional to the area. The term with $L$ is $\tfrac{N h^2}{\pi}\bigl(\tfrac\pi3-m_{\rm th}\beta\bigr)L$. It has the same factor as the first order, so the two combine into
+\begin{equation}
+	-N\,\Bigl(\frac\pi3-m_{\rm th}\beta\Bigr)\,h_\beta\, ,\qquad\qquad
+	h_\beta\colonequals h-\frac{h^2}{\pi}\,\log\frac{\beta}{2\pi\epsilon}\, .
+	\label{eq:ONhbeta}
+\end{equation}
+The dependence on the cutoff is thus only in $h_\beta$, which is the strength of the defect at distances of order $\beta$, while $h$ is its strength at the cutoff. The coefficient $\tfrac1\pi$ of the logarithm agrees with the beta function of \cite{Giombi:2023dqs}. At the fixed point the strength of the defect is the same at all distances, so $h_\beta$ is replaced by $h_*$, up to terms of order $\varepsilon^2$. Adding the two orders,
+\begin{equation}\label{eq:ONmD12}
+	m_D=-N\,h_\beta\,\Bigl(\frac\pi3-m_{\rm th}\beta\Bigr)+\frac{N h_\beta^2}{2}\,\Bigl(\log\frac{\pi}{m_{\rm th}\beta}+4\,\zeta'(-1)-\frac23\,\gamma_E\Bigr)+O(h_\beta^3)\, ,
+\end{equation}
+where in the second term we replaced $h^2$ with $h_\beta^2$, which differs from it at order $h^3$.
+At the fixed point we insert \eqref{eq:ONfp} and \eqref{eq:ONmth}, with $\log\tfrac{\pi}{m_{\rm th}\beta}=\tfrac12\log\tfrac1\varepsilon+O(1)$:
+\begin{equation}\label{eq:ONmD}
+	m_D=-\frac{2\pi^2N}{N+8}\,\varepsilon\,\Bigl[1-\sqrt{\frac{6\,(N+2)}{N+8}\,\varepsilon}\;\Bigr]+\frac{9\pi^2N}{(N+8)^2}\,\varepsilon^2\log\frac1\varepsilon+O(\varepsilon^2)\, .
+\end{equation}
+The leading term in $\varepsilon$ comes from distances of order $\beta$. The terms $\varepsilon^{3/2}$ and $\varepsilon^2\log\varepsilon$ come from the static mode, at distances of order $\xiscr$. For the magnetic line the static mode gives instead the leading term, of order $\log\varepsilon$ \cite{BMP}. The order $\varepsilon^2$ is not complete: besides the numbers in \eqref{eq:ONmD12}, it needs the difference between $h_\beta$ and $h_*$ and the correction of order $\lambda$ to $\langle\phi^2\rangle_\beta$, which we did not compute.
+
+\paragraph{The latitude: first and second order}
+We now turn to the terms with the curvature, and we consider the latitude on $S^1_\beta\times S^3_R$ with $R\sin\theta\gg\xiscr$. At first order $W^{(1)}$ we need $\langle\phi^2\rangle_\beta$ on the sphere. The propagator at zero temperature on $\mathbb{R}\times S^3_R$ is \eqref{eq:Gcyl} for $d=4$, which at equal time is $G_\infty(\psi)=\tfrac{1}{16\pi^2R^2\sin^2(\psi/2)}$. With \eqref{eq:ONGsphere} and \eqref{eq:ONGshort}, the definition \eqref{eq:ONphi2def} gives
+\begin{equation}\label{eq:ONphi2}
+	\langle\phi^2\rangle_\beta=N\lim_{\psi\to0}\Bigl[\frac{\psi}{\sin\psi}\,\mathcal{G}(R\psi)-\frac{1}{16\pi^2R^2\sin^2\frac\psi2}\Bigr]
+	=N\,\Bigl[\frac{1}{12\,\beta^2}-\frac{m_{\rm th}}{4\pi\beta}+\frac{1}{48\pi^2R^2}\Bigr]\, .
+\end{equation}
+The first two terms are those of flat space, \eqref{eq:ONphi2flat}. The corrections to \eqref{eq:ONphi2} are of order $\varepsilon/\beta^2$ and $\sqrt\varepsilon/R^2$. Since $\langle\phi^2\rangle_\beta$ is constant on the sphere, $W^{(1)}$ is $-h$ times the area $4\pi R^2\sin^2\theta$ of the latitude times \eqref{eq:ONphi2},
+\begin{equation}\label{eq:ONW1}
+	W^{(1)}=-N\,h\,\Bigl(\frac{R\sin\theta}{\beta}\Bigr)^{2}\Bigl(\frac\pi3-m_{\rm th}\beta\Bigr)-\frac{N\,h}{12\pi}\,\sin^2\theta\, .
+\end{equation}
+
+
+At second order we instead need to compute $W^{(2)}$ of \eqref{eq:ONW12} with the propagator \eqref{eq:ONGsphere}. As in subsection~\ref{sec:tests}, two points of the latitude at angle $\chi$ on the unit $S^2$ have $\cos\psi=\cos^2\theta+\sin^2\theta\cos\chi$. The integrand depends only on $\psi$, so the integral over the first point gives the area $4\pi R^2\sin^2\theta$, and the measure of the second point is $2\pi R^2\sin^2\theta\,\sin\chi\,\dd\chi$. Differentiating the relation between $\psi$ and $\chi$ we find $\sin\psi\,\dd\psi=\sin^2\theta\,\sin\chi\,\dd\chi$, so this measure is $2\pi R^2\sin\psi\,\dd\psi$. When $\chi$ goes from $0$ to $\pi$, the angle $\psi$ goes from $0$ to $2\theta$, where we take $\theta\le\tfrac\pi2$ without loss of generality. For any function $F$ we thus have
+\begin{equation}\label{eq:ONmeasure}
+	\int_{\Sigma_\theta}\!\dd^2\sigma\sqrt\gamma\int_{\Sigma_\theta}\!\dd^2\sigma'\sqrt{\gamma'}\;F(\psi)=8\pi^2R^4\,\sin^2\theta\int_0^{2\theta}\dd\psi\,\sin\psi\,F(\psi)\, .
+\end{equation}
+We apply this to $F=G_\beta(\psi)^2$ with \eqref{eq:ONGsphere}, and we use $v=R\psi$ as integration variable. The integrand at the upper limit is of order $e^{-4m_{\rm th}R\theta}$, so we can extend the integral to infinity. We find
+\begin{equation}\label{eq:ONW2int}
+	W^{(2)}=N\,h^2\cdot4\pi R^2\sin^2\theta\cdot2\pi\int_\epsilon^\infty\dd v\,v\;\frac{v/R}{\sin(v/R)}\;\mathcal{G}(v)^2\, .
+\end{equation}
+The dependence on $\theta$ is only in the area. The curvature of the sphere enters only through the factor $\tfrac{\psi}{\sin\psi}=1+\tfrac{\psi^2}{6}+\tfrac{7\psi^4}{360}+\tfrac{31\psi^6}{15120}+\dots$, and expanding it we obtain a series in $1/R^2$ (since $v = \psi/R$), whose coefficients are the moments \eqref{eq:ONMk},
+\begin{equation}\label{eq:ONmoments}
+	\begin{aligned}
+		W^{(2)}&=8\pi^2\,N\,h^2\,R^2\sin^2\theta\,\Bigl[\mathcal{M}_1+\frac{\mathcal{M}_3}{6\,R^2}+\frac{7\,\mathcal{M}_5}{360\,R^4}+\dots\Bigr]\\
+		&=\frac{N\,h^2}{2}\,\Bigl(\frac{R\sin\theta}{\beta}\Bigr)^{2}\Bigl[\mu_0+\frac{\mu_1}{24\pi^2}\,\frac{\beta^2}{R^2}+\frac{7\,\mu_2}{5760\pi^4}\,\frac{\beta^4}{R^4}+\dots\Bigr]\, ,
+	\end{aligned}
+\end{equation}
+where in the second line we used \eqref{eq:ONmu}. The first term is the one of flat space. With \eqref{eq:ONmusmall}
+\begin{equation}\label{eq:ONW2}
+	\begin{aligned}
+		W^{(2)}={}&\frac{N\,h^2}{2}\,\Bigl(\frac{R\sin\theta}{\beta}\Bigr)^{2}\Bigl[\Bigl(\frac23-\frac{2\,m_{\rm th}\beta}{\pi}\Bigr)L+\log\frac{\pi}{m_{\rm th}\beta}+4\,\zeta'(-1)-\frac23\,\gamma_E\Bigr]\\
+		&+N\,h^2\,\sin^2\theta\,\Bigl[\frac{1}{48\,(m_{\rm th}\beta)^2}+\frac{1}{12\pi^2}\Bigl(L+\frac34\Bigr)\Bigr]\\
+		&+N\,h^2\,\frac{\beta^2}{R^2}\,\sin^2\theta\,\Bigl[\frac{7}{1920\,(m_{\rm th}\beta)^4}+\frac{7\,\zeta(3)}{480\pi^4}\Bigr]+O\Bigl(\frac{\beta^4}{R^4}\Bigr)\, ,
+	\end{aligned}
+\end{equation}
+where $L=\log\tfrac{\beta}{2\pi\epsilon}$ as in \eqref{eq:ONmusmall}.
+
+The cutoff requires a comment. The integral \eqref{eq:ONW2int} diverges when the two points come together, so we exclude the pairs that are closer than $\epsilon$. On the sphere the distance between two points can be measured in two ways: along the sphere, which gives the geodesic distance $R\psi$, or in a straight line through the space $\mathbb{R}^4$ in which the sphere is embedded, which gives the chord $2R\sin\tfrac\psi2$. In \eqref{eq:ONW2int} we used the geodesic distance, because $v=R\psi$ is the integration variable. A chord $\epsilon$ corresponds to a geodesic distance $\epsilon\,\bigl(1+\tfrac{\epsilon^2}{24R^2}\bigr)$, and the two choices do not give the same result for $\epsilon\to0$, because $W^{(2)}$ has a power divergence. From the term $\tfrac{2}{x_\epsilon^2}$ of $\mu_0$ it is
+\begin{equation}
+	\frac{N h^2\,R^2\sin^2\theta}{4\pi^2\,\epsilon^2}\;\to\;\frac{N h^2\,R^2\sin^2\theta}{4\pi^2}\,\Bigl(\frac{1}{\epsilon^2}-\frac{1}{12R^2}\Bigr)\, ,
+\end{equation}
+so going from the geodesic distance to the chord adds the finite term $-\tfrac{N h^2}{48\pi^2}\sin^2\theta$. This is a multiple of $\int_\Sigma\dd^2\sigma\sqrt\gamma/R^2$, the counterterm that is excluded by the convention of subsection~\ref{sec:log}, so the convention selects one of the two cutoffs. Concretely, it is the scheme one gets by defining everything in flat space and carrying it over by the Weyl map, which selects the chord. This is also the choice made at first order, where $G_\infty$ in \eqref{eq:ONphi2def} is $\tfrac{1}{4\pi^2}$ over the square of the chord. In \eqref{eq:ONW2} we therefore included the finite term above, which is why the second line has $L+\tfrac34$ and not $L+1$. 	Only this term is affected: the logarithms of $\mu_0$ and $\mu_1$ change by terms that vanish for $\epsilon\to0$, and the $\mu_k$ with $k\ge2$ do not depend on the cutoff. The finite term above is proportional to $\sin^2\theta$ without powers of $R/\beta$, so in \eqref{eq:ONW2} it is in the second line, together with the contribution $\tfrac{N h^2}{12\pi^2}(L+1)\sin^2\theta$ of $\mu_1$: this is why that line has $L+\tfrac34$.
+
+Finally, the terms with $L$ in the first two lines of \eqref{eq:ONW2} are $-\tfrac{h}{\pi}L$ times the two terms of $W^{(1)}$ in \eqref{eq:ONW1}. As in flat space, they combine with the first order into $h_\beta$ of \eqref{eq:ONhbeta}. Nothing else depends on the cutoff, as expected: on the latitude the anomaly is $\cA=b/3$, and $b$ vanishes at this order.
+
+
+\paragraph{The latitude: comparison with the effective theory.}
+We add \eqref{eq:ONW1} and \eqref{eq:ONW2}. As in \eqref{eq:ONmD12}, in the terms of second order we write $h_\beta^2$ for $h^2$, which differs from it at order $h^3$. For $R\sin\theta\gg\xiscr$,
+\begin{equation}\label{eq:ONW}
+	\begin{aligned}
+		W_\beta[\Sigma_\theta]={}&\Bigl(\frac{R\sin\theta}{\beta}\Bigr)^{2}\Bigl[-N\,h_\beta\,\Bigl(\frac\pi3-m_{\rm th}\beta\Bigr)+\frac{N h_\beta^2}{2}\,\Bigl(\log\frac{\pi}{m_{\rm th}\beta}+4\,\zeta'(-1)-\frac23\,\gamma_E\Bigr)+O(h_\beta^3)\Bigr]\\
+		&+\sin^2\theta\,\Bigl[-\frac{N h_\beta}{12\pi}+\frac{N h_\beta^2}{48\,(m_{\rm th}\beta)^2}+\frac{N h_\beta^2}{16\pi^2}+O(h_\beta^3)\Bigr]\\
+		&+\frac{\beta^2}{R^2}\,\sin^2\theta\,\Bigl[\frac{7\,N h_\beta^2}{1920\,(m_{\rm th}\beta)^4}+\frac{7\,\zeta(3)\,N h_\beta^2}{480\pi^4}+O(h_\beta^3)\Bigr]+O\Bigl(\frac{\beta^4}{R^4}\Bigr)\, .
+	\end{aligned}
+\end{equation}
+The prediction of the effective theory is \eqref{eq:lateval} with \eqref{eq:lateval4}, which for $p=2$ reads
+\begin{equation}\label{eq:ONpred}
+	\begin{aligned}
+		W_\beta[\Sigma_\theta]={}&\cA\log\frac\beta\epsilon+\Bigl(\frac{R\sin\theta}{\beta}\Bigr)^{2}m_D+(\gamma+4\,t_2)+(r_2-4\,t_2)\sin^2\theta\\
+		&+\frac{\beta^2}{R^2}\,\sin^2\theta\,\bigl(16\,t_{4,1}\cot^4\theta+4\,u_{4,1}\cot^2\theta+r_4\bigr)+O\Bigl(\frac{\beta^4}{R^4}\Bigr)\, ,
+	\end{aligned}
+\end{equation}
+where we used \eqref{eq:p2lat} for the terms of order $\beta^0$. The result \eqref{eq:ONW} has this form. There are only even powers of $\beta$, at each order the dependence on $\theta$ is the one allowed by the effective theory, and the first line reproduces $m_D$ of \eqref{eq:ONmD12}. Comparing the other terms we read
+\begin{equation}\label{eq:ONcoeffh}
+	\begin{gathered}
+		r_2-4\,t_2=-\frac{N h_\beta}{12\pi}+\frac{N h_\beta^2}{48\,(m_{\rm th}\beta)^2}+\frac{N h_\beta^2}{16\pi^2}+O(h_\beta^3)\, ,\\
+		r_4=\frac{7\,N h_\beta^2}{1920\,(m_{\rm th}\beta)^4}+\frac{7\,\zeta(3)\,N h_\beta^2}{480\pi^4}+O(h_\beta^3)\, ,\\
+		t_{4,1}=O(h_\beta^3)\, ,\qquad u_{4,1}=O(h_\beta^3)\, ,\qquad \gamma+4\,t_2=O(h_\beta^3)\, .
+	\end{gathered}
+\end{equation}
+In each coefficient the terms with inverse powers of $m_{\rm th}\beta$ come from the static mode, and they are larger than the others by powers of $1/\varepsilon$. The other terms of second order, $\tfrac{N h_\beta^2}{16\pi^2}$ and $\tfrac{7\zeta(3)N h_\beta^2}{480\pi^4}$, come from distances of order $\beta$ and are of order $\varepsilon^2$. At the fixed point, keeping the leading terms in $\varepsilon$,
+\begin{equation}\label{eq:ONcoeff}
+	r_2-4\,t_2=-\frac{N\,(4N-1)}{8\,(N+2)(N+8)}\,\varepsilon+O(\varepsilon^{3/2})\, ,\qquad\qquad
+	r_4=\frac{189\,N}{640\pi^2\,(N+2)^2}+O(\sqrt\varepsilon)\,,
+\end{equation}
+while $t_{4,1}$ and $u_{4,1}$ are at most of order $\sqrt\varepsilon$ and $\gamma+4t_2$ is at most of order $\varepsilon^{3/2}$.
+
+
+Let us make some comments. First, note that in $r_2-4t_2$ the first two terms of \eqref{eq:ONcoeffh} are of the same order in $\varepsilon$, although the second is of second order in $h_\beta$, because it is enhanced by $(m_{\rm th}\beta)^{-2}$. The combination $r_2-4t_2$ does not depend on the regularisation, as explained below \eqref{eq:chishift}.
+
+Second, the Wilson coefficients grow with the order. The static mode contributes $\tfrac{N h_\beta^2}{48(m_{\rm th}\beta)^2}$ to $r_2$ and $\tfrac{7N h_\beta^2}{1920(m_{\rm th}\beta)^4}$ to $r_4$, and in general the coefficient of $R^{-2k}$ in $\mathcal{L}_{2k}$ is a number times $\tfrac{N h_\beta^2}{(m_{\rm th}\beta)^{2k}}$, of order $\varepsilon^{2-k}$. In $W_\beta$ this coefficient is multiplied by $(\beta/R)^{2k}$, and the product is a number times $N h_\beta^2\,(\xiscr/R)^{2k}$, in which $\beta$ has cancelled. The derivative expansion is thus in powers of $\xiscr/\ell_\Sigma$ and not of $\beta/\ell_\Sigma$, as expected from Section~\ref{sec:screening}: the Wilson coefficients are of order one only if $\xiscr$ is of order $\beta$, and in a weakly coupled theory, where $\xiscr\gg\beta$, they are large. The same happens for the magnetic line, where the bending coefficient is of order $1/\varepsilon$ \cite{BMP}.
+
+Third, the series does not converge. The numbers in front of $(\xiscr/R)^{2k}$ are $\tfrac1{24}$, $\tfrac{7}{960}$, $\tfrac{31}{8064}$ for $k=1,2,3$, and for large $k$ they grow as $\tfrac{2\,(2k-1)!}{(2\pi)^{2k}}$. The terms therefore decrease up to $k\simeq\pi m_{\rm th}R$ and then grow. The smallest one is of order $e^{-2\pi m_{\rm th}R}$, which is the size of the terms that we neglected in \eqref{eq:ONGsphere}, so the series is as accurate as the approximation from which it comes. For the Gaussian surface of Section~\ref{sec:tests} the expansion stops instead after a finite number of terms.
+
+\paragraph{Flat space: $\tilde t_2$ and $d_1$.}
+On the latitude $\Kt^A_{ab}=0$, so it cannot give the coefficient of $\Kt^2$. To find it we consider the defect in flat space, $S^1_\beta\times\mathbb{R}^3$, on a surface $\Sigma$ of arbitrary shape whose curvature radii are much larger than $\xiscr$, and we compute the term of $W_\beta[\Sigma]$ with two powers of the second fundamental form. The first order $W^{(1)}$ does not contribute, because in flat space $\langle\phi^2\rangle_\beta$ is constant and $W^{(1)}$ is proportional to the area. The second order \eqref{eq:ONW12} is
+\begin{equation}
+	W^{(2)}=N\,h^2\int_\Sigma\dd^2\sigma\sqrt\gamma\int_\Sigma\dd^2\sigma'\sqrt{\gamma'}\;\mathcal{G}(v)^2\, ,
+\end{equation}
+with $v$ the distance in $\mathbb{R}^3$ between the two points and $\mathcal{G}$ the propagator \eqref{eq:ONGflat}. This is the integral \eqref{eq:Wgauss} of the Gaussian defect, with the function $\tfrac{h^2}{2}G_\beta(v)$ replaced by $N h^2\,\mathcal{G}(v)^2$. In Section~\ref{sec:tests} we expanded that integral for a surface that is weakly curved, and the derivation of the result \eqref{eq:flatformula} did not use the form of the function of the distance. It therefore applies here, with $\tfrac{h^2}{2}M_{p+1}$ replaced by $N h^2\mathcal{M}_3$, where $\mathcal{M}_3=\int_\epsilon^\infty\dd v\,v^3\,\mathcal{G}(v)^2$ is the moment \eqref{eq:ONMk}. For $p=2$ we have $\Omega_1=2\pi$ and $2\,\II^2-K^2=2\,\Kt^2$, and the two-derivative term of $W^{(2)}$ is
+\begin{equation}\label{eq:ONflat}
+	\frac{\pi N h^2}{4}\,\mathcal{M}_3\int_\Sigma\dd^2\sigma\sqrt\gamma\;\Kt^2\, .
+\end{equation}
+The moment was computed in \eqref{eq:ONmu} and \eqref{eq:ONmusmall},
+\begin{equation}\label{eq:ONM3}
+	\mathcal{M}_3=\frac{1}{64\pi^2\,(m_{\rm th}\beta)^2}+\frac{1}{16\pi^4}\,\log\frac{\beta}{\epsilon}+\dots\, .
+\end{equation}
+The first term is the square of the static mode, $\tfrac{1}{16\pi^2\beta^2}\int_0^\infty\dd v\,v\,e^{-2m_{\rm th}v}$, and it comes from distances of order $\xiscr$. The logarithm comes from short distance, where $\mathcal{G}\simeq\tfrac{1}{4\pi^2v^2}$ and the integrand of $\mathcal{M}_3$ is $\tfrac{1}{16\pi^4v}$. The cutoff $\epsilon$ is on the distance $v$ in $\mathbb{R}^3$. The dots are a number of order one, which depends on how the cutoff is implemented in the expansion for a curved surface, and which we do not need.
+
+Inserting \eqref{eq:ONM3} in \eqref{eq:ONflat}, the two-derivative term of $W_\beta[\Sigma]$ is
+\begin{equation}\label{eq:ONflatW}
+	\Bigl[\frac{N h^2}{256\pi\,(m_{\rm th}\beta)^2}+\frac{N h^2}{64\pi^3}\,\log\frac{\beta}{\epsilon}\Bigr]\int_\Sigma\dd^2\sigma\sqrt\gamma\;\Kt^2\, ,
+\end{equation}
+up to a number of order $N h^2$ in the bracket, which we did not compute because of order $\varepsilon^2$ at the fixed point. We compare it with the effective action \eqref{eq:EFT} for $p=2$ in flat space. The terms with two derivatives are those of $\mathcal{L}_2$ and the logarithm \eqref{eq:logterm}. With the anomaly density \eqref{eq:anomalyp2} and the Gauss equation in flat space, $R_\Sigma=\tfrac12K^2-\Kt^2$, they are
+\begin{equation}\label{eq:ONflatEFT}
+	\frac{1}{4\pi}\int_\Sigma\dd^2\sigma\sqrt\gamma\,\bigl(t_2\,K^2+\tilde t_2\,\Kt^2\bigr)
+	+\frac{1}{24\pi}\,\log\frac\beta\epsilon\int_\Sigma\dd^2\sigma\sqrt\gamma\,\Bigl(\frac b2\,K^2+(d_1-b)\,\Kt^2\Bigr)\, .
+\end{equation}
+The two expressions agree term by term. The term without logarithm of \eqref{eq:ONflatW} gives $\tfrac{\tilde t_2}{4\pi}=\tfrac{N h^2}{256\pi(m_{\rm th}\beta)^2}$ and $t_2=0$, since $K^2$ does not appear. At the fixed point,
+\begin{equation}\label{eq:ONtt2}
+	\tilde t_2+2\,t_2=\frac{N h_*^2}{64\,(m_{\rm th}\beta)^2}=\frac{27\,N}{32\,(N+2)(N+8)}\,\varepsilon+O(\varepsilon^{3/2})\, .
+\end{equation}
+We quote the combination $\tilde t_2+2t_2$ because it is the one that is invariant under the shift \eqref{eq:chishift}. It still depends on the definition of the cutoff in the logarithm, but a rescaling of $\epsilon$ changes it by a multiple of $d_1$, which is of order $\varepsilon^2$ and does not affect \eqref{eq:ONtt2}. The term with the logarithm gives $\tfrac{d_1-b}{24\pi}=\tfrac{N h^2}{64\pi^3}$ and $b=0$, since no logarithm multiplies $K^2$. Hence
+\begin{equation}\label{eq:ONd1}
+	d_1=\frac{3\,N h_*^2}{8\pi^2}=\frac{27\,N}{2\,(N+8)^2}\,\varepsilon^2\, ,
+\end{equation}
+with $b$ of higher order. This agrees with the values quoted below \eqref{eq:ONfp}: the high-temperature expansion reproduces the anomaly coefficient $d_1$ of \cite{Diatlyk:2024ngd}, as it must by the argument of Section~\ref{sec:log}.
+
+The moment $\mathcal{M}_3$ appears also on the latitude, in \eqref{eq:ONmoments}, but there its logarithm has a different role. It multiplies $\sin^2\theta$, which is the integral of $1/R^2$ over the latitude and has the form of the last term of $W^{(1)}$ in \eqref{eq:ONW1}, so it is part of $h_\beta$. In flat space it multiplies $\int_\Sigma\Kt^2$, which does not appear in $W^{(1)}$, and it is the anomaly.
+	
+	
+	
+	
 \appendix 
 
 \section{The geometric data of the latitude}\label{appAgeom}
